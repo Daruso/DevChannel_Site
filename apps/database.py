@@ -63,7 +63,7 @@ def get_user(id_key, id_value, **_):
 
 def get_all_users():
     return json.dumps(
-        {'ok': False, 'response': db.all()}
+        {'ok': True, 'response': db.all()}
     )
 
 
