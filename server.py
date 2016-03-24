@@ -56,16 +56,16 @@ def _database():
         return 'Unauthorized'
 
     args = {var_name: flask.request.args.get(var_name, '')
-            for var_name in ('email', 'username', 'slack_id', 'git', 'skills', 'timezone', 'points')}
+            for var_name in ('email', 'username', 'slack_id', 'github', 'skills', 'timezone', 'points')}
 
     if flask.request.method == 'POST':
         return database.insert_user(email=args['email'], username=args['username'], slack_id=args['slack_id'],
-                                    skills=args['skills'], git=args['git'], timezone=args['timezone'],
+                                    skills=args['skills'], github=args['github'], timezone=args['timezone'],
                                     points=args['points'])
 
     elif flask.request.method == 'PUT':
         params = {var_name: args[var_name]
-                  for var_name in ('skills', 'git', 'timezone', 'username', 'email', 'points')
+                  for var_name in ('skills', 'github', 'timezone', 'username', 'email', 'points')
                   if args[var_name] != ''}
 
         return database.update_user(email=args['email'], username=args['username'], slack_id=args['slack_id'],
