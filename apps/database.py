@@ -28,11 +28,15 @@ def choose_identifier(original):
 
 
 def insert_user(skills='', github='', timezone='', email='', username='', slack_id='', points='0'):
+    """ Only apps.invite.py should call it!
+
+    apps.invite confirms email validity, and uniqueness
+    """
     data = {"skills": skills, "github": github, "time": timezone, "email": email, "username": username,
             'slack_id': slack_id, "points": points}
     db.insert(data)
     return json.dumps(
-        {'ok': True, 'response': 'added: {}'.format(data)}
+        {'ok': True, 'response': db.get(User.email == email)}
     )
 
 
@@ -40,7 +44,7 @@ def insert_user(skills='', github='', timezone='', email='', username='', slack_
 def update_user(params, id_key, id_value, **_):
     db.update(params, User[id_key] == id_value)
     return json.dumps(
-        {'ok': True, 'response': 'updated: {} with {}'.format(id_value, params)}
+        {'ok': True, 'response': {'id': id_value, 'value': db.get(User[id_key] == id_value)}}
     )
 
 
@@ -53,7 +57,7 @@ def get_user(id_key, id_value, **_):
         )
     else:
         return json.dumps(
-            {'ok': False, 'response': 'User not found'}
+            {'ok': False, 'response': {'Error': 'User not found'}}
         )
 
 
@@ -67,7 +71,7 @@ def get_all_users():
 def delete_user(id_key, id_value, **_):
     db.remove(User[id_key] == id_value)
     return json.dumps(
-        {'ok': True, 'response': 'deleted: {}'.format(id_value)}
+        {'ok': True, 'response': {'id': id_value}}
     )
 
 if __name__ == '__main__':
