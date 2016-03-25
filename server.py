@@ -4,8 +4,7 @@ import flask
 import requests
 
 import server_config
-
-from apps import invite, database
+from apps import invite, database, article
 
 app = flask.Flask(__name__)
 app.secret_key = server_config.SERVER_SECRET
@@ -14,7 +13,8 @@ app.secret_key = server_config.SERVER_SECRET
 @app.route('/')
 @app.route('/index')
 def index():
-    return flask.render_template('index.html')
+    articles = [article.Article(**params)for params in article.get_articles()]
+    return flask.render_template('index.html', articles=reversed(articles))
 
 
 @app.route('/docs')
