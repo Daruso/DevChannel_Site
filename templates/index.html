@@ -24,132 +24,19 @@
   <div class="row">
     <h1 id="title">Announcements</h1>
   </div>
+{% for article in articles %}
   <div class="row">
     <div class="announcement_container">
       <div class="row posters_name">
-        <h4>therightman</h4>
+        <h4>{{ "{} - {}".format(article.author, article.publish_date) }}</h4>
       </div>
       <div class="row">
         <div class="col-md-12">
-            <p class="announcement">
-                <br>Biweekly challenge #2 (UPDATED)<br><br>
-
-                Hello everyone, I'm here to announce the second biweekly challenge!<br><br>
-
-                This week it will be to make a Web App. The goal is to have a file uploader: you choose a file from your pc, upload and it gets stored in the server.<br><br>
-
-                The most basic version of this would be being able to upload text files. After that, display/reproduce the files on the website.<br><br>
-
-                Some improvements would be:<br>
-            </p>
-                <ul>
-                    <li>more file types</li>
-                    <li>drag and drop feature</li>
-                    <li>make a better design for the website</li>
-                    <li>add restrictions such as file size</li>
-                    <li>maximum number of requests</li>
-                    <li>etc, the best you can do, try to make it as visible as possible</li>
-                </ul><br>
-            <p class="announcement">
-
-                You are encouraged to make it with teams, and those that do will get extra points for it,<br><br>
-
-                Good luck!<br><br>
-            </p>
+        <!--<p class="announcement"> tag is added by body_to_html-->
+          {{ article.body_to_html()|safe }}
         </div>
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="announcement_container">
-      <div class="row posters_name">
-        <h4>therightman</h4>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-            <p class="announcement">
-                <br>Biweekly challenge #1 (UPDATED)<br><br>
-
-                Hey there! This time the goal will be to create an autocorrect program.<br><br>
-
-                The basic task is to write an autocorrect program.<br><br>
-
-                It should be able to test if a typed word is correct or not and give some feedback to the user.<br><br>
-
-                Improve it as much as you want (graphical interface, analyzing sentences, predicting mistakes... do what you feel that is right, be creative!<br><br>
-
-                If you use a list of words please put it in a file called 'words.txt', and you can use our list!<br><br>
-
-                THIS CHALLENGE IS FOR EVERYONE. Don't be afraid to participate if you know your program will lose, what matters is what you learn :D<br><br>
-
-                FIND A PARTNER or do it on your own, but teams (2-3 people) will have bonus points for cooperation!<br><br>
-
-                Deadline: Sunday, March 20th at mid night (GMT 0) (beginning of Monday :) )
-
-                Good luck!
-			        </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="announcement_container">
-      <div class="row posters_name">
-        <h4>therightman</h4>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <p class="announcement">
-            <br>Weekly challenge #3:<br><br>
-
-            Make a todo-bot (a todo-list with which you interact with commands like "add 'make a robot' to bigProjects").<br><br>
-
-            The goal is pretty obvious, you should have the current functionalities:</p><br>
-            <ul>
-              <li>Adding new items</li>
-              <li>Marking items as done</li>
-              <li>Check the list of stuff you still have to do and also the list of completed tasks</li>
-            </ul><br>
-          <p class="announcement">
-            Example: Given the command "add 'change player skin'" would add 'change player skin' to the list and "'change player skin' done" would move it to a 'Done' list<br><br>
-
-            You can improve it and simplify it as much as you want by adding functionalities like having multiple lists, reminders, etc..<br><br>
-
-            rules are that you should make it in teams of 2-3 people.<br><br>
-
-            The final projects will be ranked and the best (or maybe a combination of the best) will be integrated by us to the slack chat as bot!<br><br>
-
-            If you want to participate, find 1 or 2 people to team with and start working on it, you can ask me, @daruso ,  @vaggelisd or @himrin to make you a private channel :) Finally, the submission date is until next Sunday(March 6th) at midnight, you should upload it to a github repo and link us to it in this channel(#weekly_callenge) :D<br><br>
-
-            Good luck!
-
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="announcement_container">
-      <div class="row posters_name">
-        <h4>therightman</h4>
-      </div>
-      <div class="row">
-        <div class="col-md-12">
-          <p class="announcement">
-          <br>Hello Everyone!<br><br>
-          I'm very happy to announce the launch of our website!<br><br>
-
-          You can now join the DevChannel by filling up the form in the "Join" section of
-          the website and of course send your friends here if they want to join too :)<br><br>
-
-          If you take a look around here you'll probably notice that this is not finished.. At all.
-          Any suggestions will be appreciated, and you can make them by joining our chat (again, in the "Join" section)
-          and contact me (therightman), another administrator, or just share it publicly.<br><br>
-
-          Thanks for tuning in, see you in the chat ;)
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
+{% endfor %}
 {% endblock %}
