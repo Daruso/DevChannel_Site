@@ -116,5 +116,36 @@ def auth():
 
     return 'Something went wrong'
 
+
+@app.route('/_upload', methods=['GET', 'POST'])
+def _upload():
+    if flask.session.get('username') not in server_config.ALLOWED_USERS:
+        flask.abort(403)
+
+    if flask.request.method == 'POST':
+        author = flask.request.form['author']
+        text = flask.request.form['text']
+        text = parse(text)
+        article.save_article(article.Article(author, text))
+        return 'Done'
+    return flask.render_template('_upload.html')
+
+
+def parse(txt):
+    txt = txt.split('\r\n')
+    resp = ['']
+    for line in txt:
+        if line.startswith('    '):
+            if isinstance(resp[-1], str):
+                resp.append([line[4:]])
+            else:
+                resp[-1].append(line[4:])
+        else:
+            if isinstance(resp[-1], list):
+                resp.append(line)
+            else:
+                resp[-1] += '\n' + line
+    return resp
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000, threaded=True)

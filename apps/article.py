@@ -5,7 +5,7 @@ import html
 
 import tinydb
 
-db = tinydb.TinyDB('apps/articles.json')
+db = tinydb.TinyDB('database/articles.json')
 
 
 class Article:
