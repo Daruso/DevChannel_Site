@@ -10,7 +10,13 @@ class FlaskViews(unittest.TestCase):
 
     def test_database(self):
         resp = self.app.get('/_database')
-        self.assertEqual(resp.data, b'Unauthorized')
+        self.assertEqual(resp.status_code, 403)
+
+        with self.app as clnt:
+            with clnt.session_transaction() as session:
+                session['username'] = 'someone_random'
+            resp = self.app.get('/_database')
+            self.assertEqual(resp.status_code, 403)
 
         with self.app as clnt:
             with clnt.session_transaction() as session:
