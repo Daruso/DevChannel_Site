@@ -1,6 +1,6 @@
 import unittest
 
-from server import app
+from website import app
 
 
 class FlaskViews(unittest.TestCase):
