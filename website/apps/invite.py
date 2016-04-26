@@ -3,7 +3,7 @@ import time
 
 import requests
 
-from apps import invite_config, database
+from ..apps import invite_config, database
 
 lang_channels = {
     'python': invite_config.CH_PYTHON,
