@@ -2,7 +2,7 @@ import json
 
 from tinydb import TinyDB, Query
 
-db = TinyDB('database/users.json')
+db = TinyDB('website/database/users.json')
 User = Query()
 
 

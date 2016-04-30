@@ -1,13 +1,15 @@
 import json
+from collections import OrderedDict
 
 import flask
 import requests
+from werkzeug.contrib.cache import SimpleCache
 
-import server_config
-from apps import invite, database, article
+from . import server_config
+from .apps import invite, database, article
+from . import app
 
-app = flask.Flask(__name__)
-app.secret_key = server_config.SERVER_SECRET
+cache = SimpleCache()
 
 
 @app.route('/')
@@ -29,7 +31,12 @@ def about():
 
 @app.route('/resources')
 def resources():
-    return flask.render_template('resources.html')
+    res = cache.get('resources')
+    if not res:
+        with open('website/database/resources.json', 'r') as f:
+            res = json.loads(f.read(), object_pairs_hook=OrderedDict)
+        cache.set('resources', res, timeout=1800)  # 30 mins timeout
+    return flask.render_template('resources.html', link=res)
 
 
 @app.route('/join', methods=['GET', 'POST'])
@@ -163,4 +170,4 @@ def page_not_found(error):
         return flask.render_template('errors/500.html'), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', threaded=True, port=3000)
+    pass

@@ -11,7 +11,7 @@ A super secret repo for the DevChannel website
   * If you have conda installed: `conda env create -f environment.yml`.
   * If you have pip installed: `pip install -r requirements.txt`
 
-Run `server.py` (`python3 server.py`). After that you can open the site:
+Run `runserver.py` (`python3 runserver.py`). After that you can open the site:
   1. If you are on the host computer:  
     `localhost:3000`
   2. If you are on the same network as the host computer:  

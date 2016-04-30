@@ -3,7 +3,7 @@ import json
 
 from tinydb import TinyDB, Query
 
-from apps import database, invite
+from website.apps import database, invite
 
 
 class Database(unittest.TestCase):

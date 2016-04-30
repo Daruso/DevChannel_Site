@@ -19,6 +19,10 @@ a:hover {
   color: white;
 }
 
+.resource{
+    text-decoration: underline;
+}
+
 @media (min-width: 970px){
     .container {
       margin-top: 7.3em;

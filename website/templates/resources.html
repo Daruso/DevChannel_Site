@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% set activepage = "resources" %}
+{% block title %}Resources{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <h1 id="title">Resources</h1>
+    </div>
+<!--
+    <div class="row">
+        <div class="announcement_container">
+            <div class="row posters_name">
+                <h4>W I P</h4>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <p class="announcement">Work in progress :)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+-->
+    {% for language, val in link.items() %}
+    <div>
+        <a href="#{{ language }}" data-toggle="collapse">{{ language }}</a>
+        <div id="{{ language }}" class="collapse">
+            {% for p_title, resources in val.items() %}
+            <ul>
+                <li>{{ p_title }}
+                    <ul>
+                        {% for title, description in resources.items() %}
+                        <li>{{ title|safe }} - {{ description|safe }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            </ul>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+
+{% endblock %}

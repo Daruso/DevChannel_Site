@@ -1,0 +1,44 @@
+{
+    "GENERAL":
+    {
+        "Challenges": {
+
+        }
+    },
+    "HASKELL":
+    {
+        "Beginner": {
+            "<a class='resource' href='http://learnyouahaskell.com/'>Learn You a Haskell/</a>": "The book will teach you the basics of Haskell and functional programming. It was written for people with some experience in other (non-functional) languages. P.S: Don't let the cover fool you.",
+            "<a class='resource' href=http://book.realworldhaskell.org/'>Real World Haskell</a>": "The other go-to recommendation for beginners (I personally recommend this book over Learn You a Haskell). The first 4 or so chapters may feel overwhelming if you've never done functional programming before so don't rush and take your time.",
+            "<a class='resource' href='http://haskellbook.com/'>Haskell Programming</a>": "This book targets people without any programming experience. If you want to learn Haskell as your first programming language you should probably try this book instead of the 2 mentioned above. DISCLAIMER: This book is still Work in Progress, but since there is no better resource for complete beginners I included it."
+        },
+        "Intermediate": {
+            "<a class='resource' href='https://wiki.haskell.org/Typeclassopedia'>Typeclassopedia</a>": "If you feel comfortable with Haskell and the standard library, Typeclassopedia is a great place to learn about higher level concepts.",
+            "<a class='resource' href='http://www.amazon.com/dp/0262660717/?tag=stackoverfl08-20'>Basic Category Theory</a>": "This book is surprisingly about... category theory. If you don't want to buy the book (which is absolutely worth the it btw) check out the author's shorter article at http://repository.cmu.edu/cgi/viewcontent.cgi?article=2846&context=compsci."
+        }
+    },
+    "PYTHON":
+    {
+        "Beginner": {
+            "<a class='resource' href='https://docs.python.org/3/tutorial/'>The official python3 tutorial</a>": "The official, free tutorial is recommended if you have some programming experience, but you are new to python itself. It will give you a brief overview of the language, but won't go too deep into details.",
+            "<a class='resource' href='http://www.diveintopython3.net/'>Dive into python3</a>": "Are you an experienced programmer but new to python? Do you dislike the official tutorial? In that case this free book is the go-to recommendation for you.",
+            "<a class='resource' href='https://automatetheboringstuff.com/'>Automate the boring stuff with python</a>": "This book will teach you the basics of python programming. You'll be able to write small programs that will automate tedius everyday tasks. The book is free and also has a video-course (first half is free on youtube). No prior programming experience required."
+        },
+        "Intermediate": {
+            "<a class='resource' href='http://www.amazon.com/Fluent-Python-Luciano-Ramalho/dp/1491946008'>Fluent Python</a>": "Once you understand the basics of python, you should understand its idioms and best practices. The first half of the book will introduce you python's data structures, with internal implementation details. The 2nd half goes into more depth with iterators, generators, coroutines and even metaprogramming.",
+            "<a class='resource' href='http://www.amazon.com/Python-Cookbook-Third-David-Beazley/dp/1449340377'>Python Cookbook (3e)</a>": "As the name suggests it's a general cookbook that also covers more advanced recipes and highlights features from python3. Altho we suggest you read the book, because it's great, the receips are available for free on <a href='https://github.com/dabeaz/python-cookbook'><i>Beazley's github page</i></a>"
+        },
+        "Challenges": {
+            "<a class='resource' href='https://www.raylu.net/httpd.txt'>HTTP server</a> (by raylu)": "Make an HTTP server",
+            "<a class='resource' href='https://gist.github.com/raylu/5c6d570ae186f963ad2d'>Shell</a> (by raylu)": "Make a shell",
+            "<a class='resource' href='https://gist.github.com/raylu/69f4acd1fc094c66ba73'>Cron</a> (by raylu)": "Make cron",
+            "<a class='resource' href='https://gist.github.com/raylu/a239b9f32aa1735ae42f'>Web Server Gateway Interface</a> (by raylu)": "Make a WSGI"
+        }
+    },
+    "WEB":
+    {
+      "GENERAL": {
+        "<a class='resource' href='https://www.theodinproject.com/'>The Odin Project</a>": "\"Learn Web Development for Free\"",
+        "<a class='resource' href='https://'www.codeupstart.com/'>CodeUpStart</a>": "\"Learn to code by creating real startups\""}
+    }
+}
