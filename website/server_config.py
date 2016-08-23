@@ -1,7 +1,7 @@
 import os
 
 # github usernames
-ALLOWED_USERS = {'g4s-slack', 'therightmandev'}
+ALLOWED_USERS = {'g4s-slack', 'therightmandev', 'joesv'}
 
 # github login consts
 GIT_CLIENT_ID = os.environ.get('GIT_ID', '')
