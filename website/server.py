@@ -45,33 +45,6 @@ def resources():
     return flask.render_template('resources.html', link=res)
 
 
-@app.route('/members')
-def members():
-    all_users = json.loads(database.get_all_users())
-    if not all_users['ok']:
-        flask.abort(500)
-
-    users = [User(username=user['username'], skills=user['skills'], points=user['points'], last_seen='Not Available')
-             for user in all_users['response']]
-
-    order = flask.request.args.get('order')
-    lang = flask.request.args.get('lang', '').lower()
-
-    if order == 'points':
-        users.sort(key=attrgetter('points'), reverse=True)
-    else:
-        users.sort(key=attrgetter('username'))
-
-    if lang:
-        t1, t2 = tee(users)
-        lang_yes = filter(lambda user: lang in user.skills.lower(), t1)
-        lang_no = filterfalse(lambda user: lang in user.skills.lower(), t2)
-
-        users = list(lang_yes) + list(lang_no)
-
-    return flask.render_template('members.html', members=users)
-
-
 @app.route('/join', methods=['GET', 'POST'])
 def join():
     if flask.request.method == 'POST':
